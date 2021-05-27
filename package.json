@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/pascalweber85/lean-coffee-board-proj/issues"
   },
-  "homepage": "https://github.com/pascalweber85/lean-coffee-board-proj#readme"
+  "homepage": "https://github.com/pascalweber85/lean-coffee-board-proj#readme",
+  "dependencies": {
+    "inquirer": "^8.1.0"
+  }
 }
