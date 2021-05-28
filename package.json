@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/pascalweber85/lean-coffee-board-proj#readme",
   "dependencies": {
-    "inquirer": "^8.1.0"
+    "inquirer": "^8.1.0",
+    "mongodb": "^3.6.9"
   }
 }
