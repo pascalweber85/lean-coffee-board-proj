@@ -22,7 +22,6 @@ router.patch('/:id', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
   const { id } = req.params
-
   res.status(204).json(await User.findByIdAndDelete(id))
 })
 
