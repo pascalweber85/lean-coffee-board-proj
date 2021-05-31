@@ -1,18 +1,28 @@
-const http = require('http')
+const express = require('express')
+const mongoose = require('mongoose')
 
-const server = http.createServer(onRequest)
-server.listen(4000)
+mongoose
+  .connect('mongodb://localhost:27017/lean-coffee-board', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('Connected to MongoDB (lean-coffee-board)'))
+  .catch(console.error)
 
-function onRequest(req, res) {
-  if (req.url === '/') {
-    res.end(`Please visit /users to get user data.`)
-  }
+// express likes to call the server "app"
+const app = express()
 
-  if (req.url === '/users') {
-    const users = [
-      { name: 'Jane Doe', age: 32, email: 'jane@doe.com' },
-      { name: 'John Doe', age: 31, email: 'john@doe.com' },
-    ]
-    res.end(JSON.stringify(users))
-  }
-}
+// add middleware for json data
+app.use('/', express.json())
+app.use('/api/users', require('./routes/users'))
+app.use('/api/cards', require('./routes/cards'))
+
+// catch all (404)
+app.use((req, res) => res.sendStatus(404))
+
+// error route
+app.use(require('./routes/error'))
+
+app.listen(4000, () => {
+  console.log(`Server started at http://localhost:4000`)
+})
