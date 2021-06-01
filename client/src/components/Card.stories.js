@@ -1,5 +1,4 @@
-import Card from './client/src/components/Card'
-
+import Card from './Card'
 export default {
   title: 'Card',
   component: Card,
@@ -8,4 +7,6 @@ export default {
 const Template = args => <Card {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  children: 'Hello world',
+}

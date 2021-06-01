@@ -1,7 +1,3 @@
-
-  import styled from 'styled-components/macro'
-    
-  export default function Card () {
-      return <div>Card</div>
-  }
-        
+export default function Card({ children }) {
+  return <div>{children}</div>
+}
